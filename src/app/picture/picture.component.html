@@ -1,0 +1,57 @@
+<div class="background-whole">
+  <div class="channel">
+
+    <div class="welcome">
+      <img class="welcome-pic" src="../assets/pic-show.png" width="1000px">
+    </div>
+
+    <!-- 以下clr-datagrid的仅适用于row排版【zjk】 -->
+    <!--<clr-datagrid>-->
+      <!--<clr-dg-placeholder>Loading...</clr-dg-placeholder>-->
+      <!--<div class="row">-->
+        <!--<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 my-card" *clrDgItems="let item of cardcont">-->
+          <!--<p-card styleClass="ui-card-shadow" [style]="{width: '240px'}">-->
+            <!--<p-header>-->
+              <!--<img src="{{item.coverImg}}">-->
+            <!--</p-header>-->
+          <!--</p-card>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<clr-dg-footer>-->
+        <!--<clr-dg-pagination #pagination [clrDgPageSize]="12"></clr-dg-pagination>-->
+      <!--</clr-dg-footer>-->
+    <!--</clr-datagrid>-->
+
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 my-card" *ngFor="let item of cardcont">
+        <p-card  class="my-card" styleClass="ui-card-shadow" [style]="{width: '232px', height: '360px'}">
+          <p-header>
+            <img src="{{item.coverImg}}">
+          </p-header>
+        </p-card>
+      </div>
+    </div>
+
+    <div class="clr-row clr-justify-content-center">
+      <div class="clr-col-3" style="margin:10px">
+        <div class="btn-group">
+          <button class="btn" (click)="beforePage()" [hidden]="!beforePageFlag">
+            <clr-icon shape="rewind"></clr-icon>
+          </button>
+          <button class="btn" disabled [hidden]="beforePageFlag">
+            <clr-icon shape="rewind"></clr-icon>
+          </button>
+          <button class="btn" disabled>{{page}}</button>
+          <button class="btn" (click)="nextPage()" [hidden]="!nextPageFlag">
+            <clr-icon shape="fast-forward"></clr-icon>
+          </button>
+          <button class="btn" disabled [hidden]="nextPageFlag">
+            <clr-icon shape="fast-forward"></clr-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <img class="footer-pic" src="../assets/footer.png" />
+  </div>
+</div>

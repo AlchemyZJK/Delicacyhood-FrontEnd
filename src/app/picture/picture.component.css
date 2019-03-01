@@ -1,0 +1,28 @@
+.container{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  width:1000px;
+  margin: 0 auto;
+}
+li{
+  list-style-type:none;
+}
+.background-whole {
+  background-image:url("../../assets/background.jpg");
+}
+.channel {
+  margin: 0 auto;
+  width: 1000px;
+  background-color: #FFFFFF;
+  //padding: 2rem;
+}
+
+.welcome {
+  margin: 0 auto;
+  width: 1000px;
+}
+
+.my-card {
+  margin: 5px 0 5px 0;
+}

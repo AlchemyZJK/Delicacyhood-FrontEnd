@@ -1,0 +1,56 @@
+<div class="delicacy-search">
+
+  <div class="search-item">
+    <div class="ui-inputgroup">
+      <span class="ui-inputgroup-addon">关键词搜索 </span>
+      <input type="text" pInputText [(ngModel)]="keyword" placeholder="Keyword">
+    </div>
+  </div>
+
+  <div class="search-item">
+    <div class="ui-inputgroup">
+      <span class="ui-inputgroup-addon">作者姓名搜索 </span>
+      <input type="text" pInputText [(ngModel)]="author" placeholder="Author Name">
+    </div>
+  </div>
+
+  <div class="choose-item">
+    <div class="ui-inputgroup">
+      <p-dropdown [options]="optionTime" [(ngModel)]="selectedTime" placeholder="Select a Created Time" [showClear]="true"></p-dropdown>
+    </div>
+  </div>
+
+  <div class="choose-item">
+    <div class="ui-inputgroup">
+      <p-dropdown [options]="optionLimit" [(ngModel)]="limit" placeholder="Select the Limit" [showClear]="true"></p-dropdown>
+    </div>
+  </div>
+
+  <div class="button-item">
+    <p-button label="搜索" (click)="requestSearch()"></p-button>
+  </div>
+
+</div>
+
+<!-- Simple Card CSS -->
+<!--
+<div class="search-results">
+  <p-card *ngFor="let result of searchRes" header="{{result.postId}}">
+    <div class="content">{{result.score}}</div>
+  </p-card>
+</div>
+-->
+
+<!-- Advanced Card CSS -->
+<div class="container">
+<li *ngFor="let e of searchResourceArray">
+  <p-card header="{{e.title}}" [style]="{width: '300px'}" styleClass="ui-card-shadow">
+    <p-header>
+      <img src={{e.coverImg}} >
+    </p-header>
+    <p-footer>
+      <button pButton type="button" icon="pi pi-fw pi-search" routerLink="{{e.postUrl}}"></button>
+    </p-footer>
+  </p-card>
+</li>
+</div>

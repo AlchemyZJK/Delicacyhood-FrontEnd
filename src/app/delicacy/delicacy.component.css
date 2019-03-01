@@ -1,0 +1,20 @@
+.background-whole {
+  background-image:url("../../assets/background.jpg");
+}
+
+.channel {
+  margin: 0 auto;
+  width: 1000px;
+  background-color: #FFFFFF;
+  /*padding: 2rem;*/
+}
+
+.welcome {
+  margin: 0 auto;
+  width: 1000px;
+}
+
+.item {
+  margin: 5px;
+  padding: 5px;
+}

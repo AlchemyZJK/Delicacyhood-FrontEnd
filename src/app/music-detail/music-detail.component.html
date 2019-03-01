@@ -1,0 +1,68 @@
+<div class="background-whole">
+  <div class="channel">
+    <div class="clr-row clr-justify-content-center">
+      <div class="clr-col-4">
+        <img src={{pcoverImg}} width="70%" height="90%">
+      </div>
+
+      <div class="clr-col-8" style="position: relative">
+        <h1>{{ptitle}}</h1>
+        <span>Author: {{pname}} </span><br>
+        <span>CreateDate: {{ptime}}</span><br>
+        <ul>
+          <li *ngFor="let i of ptag" style="list-style-type:none;float: left" >
+            <span class="label">{{i}}</span>
+          </li>
+        </ul>
+        <br/><br/>
+        <audio src={{proute}} style="display: block; position: absolute; left: 8px; bottom: -45px" controls="controls"></audio>
+      </div>
+    </div>
+
+    <!--<div class="onTop">-->
+      <!--<div style="height: 15px"></div>-->
+      <!--<div class="topImg" style="float: left">-->
+        <!--<img src={{pcoverImg}}>-->
+      <!--</div>-->
+      <!--<div class="topTitle" style="float: left">-->
+        <!--<div style="float: top"><h1>{{ptitle}}</h1></div>-->
+        <!--<div style="float: top"><b>author:{{pname}}</b> <b>createDate:{{ptime}}</b></div>-->
+
+      <!--</div>-->
+    <!--</div>-->
+
+  <!--<img src={{pcoverImg}} height="200" width="200">-->
+  <!--<a href={{proute}}></a>-->
+
+    <!--<a href={{proute}}>point</a>-->
+    <div class="text">
+      <span>{{ptxt}}</span>
+      <p></p>
+      <div class="collection-button">
+        <p-button icon="pi pi-star" iconPos="left" label="{{label}}" (click)="collectionClick()"></p-button>
+      </div>
+
+      <div class="remark">
+        <textarea rows="5" cols="100" pInputTextarea autoResize="autoResize" [(ngModel)]="remark"></textarea>
+        <p-button icon="pi pi-check" iconPos="left" label="提交评论" (click)="addRemark()"></p-button>
+      </div>
+      <p-toast position="bottom-right"></p-toast>
+    </div>
+
+
+
+
+    <!-- following are added by zjk -->
+
+
+    <div class="post-remarks">
+      <p-card *ngFor="let remark of remarkContent" subheader="{{remark.userName}}">
+        <div class="content">{{remark.content}}</div>
+        <div class="created-time">{{remark.createdTime}}</div>
+      </p-card>
+    </div>
+
+    <div style="height: 40px"></div>
+
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="remark">
+  <textarea rows="5" cols="100" pInputTextarea autoResize="autoResize" [(ngModel)]="remark"></textarea>
+  <p-button icon="pi pi-check" iconPos="left" label="提交评论" (click)="addRemark()"></p-button>
+</div>
+
+<div class="post-remarks">
+  <p-card *ngFor="let remark of remarkGetRes" header="user ID: {{remark.userId}}">
+    <div class="content">{{remark.content}}</div>
+    <div class="created-time">{{remark.createdAt}}</div>
+  </p-card>
+</div>

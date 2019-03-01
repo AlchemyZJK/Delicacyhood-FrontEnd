@@ -1,0 +1,9 @@
+/*DelicacyRemarkComponent's private CSS style*/
+.remark {
+  margin: 5px 5px 5px 0px;
+  width: 759px;
+  height: 135px;
+}
+.remark p-button {
+ float: right;
+}

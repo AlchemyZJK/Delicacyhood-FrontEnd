@@ -1,0 +1,22 @@
+<!-- <h2>User Collection</h2> -->
+
+<div class="user-collections" >
+  <div *ngIf="collections">
+      <!-- Simple Card -->
+      <!--
+      <p-card *ngFor="let collection of collections" header="postId: {{collection.postId}}">
+        <div class="created-time">{{collection.createdAt}}</div>
+      </p-card>
+      -->
+    <div class="container">
+      <li *ngFor="let e of cardContent">
+        <p-card  class="collection-card" subheader="{{e.title}}" [style]="{width: '200px', height: '250px'}" styleClass="ui-card-shadow">
+          <p-header>
+            <img src="{{e.coverImg}}" routerLink="{{e.postUrl}}"/>
+          </p-header>
+        </p-card>
+      </li>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<!--<h2>User Remark</h2>-->
+<div class="user-remarks">
+  <!-- Simple Card -->
+  <!--
+  <p-card *ngFor="let remark of remarkRes" header="post ID: {{remark.postId}}">
+    <div class="content">{{remark.content}}</div>
+    <div class="created-time">{{remark.createdAt}}</div>
+  </p-card>
+  -->
+
+  <p-card *ngFor="let remark of cardContent" header="{{remark.title}}" routerLink="{{remark.postUrl}}">
+    <div class="content">{{remark.content}}</div>
+    <div class="created-time">{{remark.createdAt}}</div>
+  </p-card>
+</div>

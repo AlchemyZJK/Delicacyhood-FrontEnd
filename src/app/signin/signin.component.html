@@ -1,0 +1,51 @@
+<div class="background-whole">
+  <div class="mybanner">
+      <img class="banner" src="../assets/signin.png" />
+  </div>
+  
+  
+  <div class="body">
+
+
+      <div class="signin">
+          <div class="signinin">
+          <div class="login-input-box">
+              <span class="icon icon-user"></span>
+              <input type="text" pInputText [(ngModel)]="useremail" placeholder="请输入您注册账号使用的邮箱">
+          </div>
+
+          <div class="login-input-box">
+              <span class="icon icon-password"></span>
+              <input type="password" pInputText [(ngModel)]="password" placeholder="请输入密码">
+          </div>
+        
+
+            <p><br></p>
+          <div class="box">
+            <p-button class="sub" label="登录" (click)="email()" ></p-button>
+          </div>
+
+          <div class="box">
+            <a routerLink="/passwordforget" class="sub">忘记密码</a>
+          </div>
+
+
+        <p-messages [(value)]="mmsg" class="mymessage"></p-messages>
+        <p-messages [(value)]="mmsg2" class="mymessage2"></p-messages>     
+        <div class="box" >
+            <a routerLink="/user" class="sub">前往个人中心</a>
+            </div>
+        </div>
+        </div>
+
+</div>
+
+<div class="foot">
+    <img class="foot-pic" src="../assets/footer.png" />    
+</div>
+
+
+</div>
+
+
+

@@ -1,0 +1,31 @@
+.background-whole {
+  background-image:url("../../assets/background.jpg");
+}
+
+.channel {
+  margin: 0 auto;
+  width: 1000px;
+  background-color: #FFFFFF;
+  padding: 2rem;
+}
+
+.remark {
+  margin: 5px 5px 5px 0px;
+  width: 760px;
+  height: 136px;
+  padding: 0rem 2rem 0rem 0rem;
+}
+.remark p-button {
+  float: right;
+}
+.text {
+  padding: 2rem 4rem;
+}
+
+div.clr-row.clr-justify-content-center {
+  margin-left: 5rem;
+}
+
+.post-remarks {
+  padding: 0rem 4rem 0rem 4rem;
+}

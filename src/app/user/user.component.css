@@ -1,0 +1,38 @@
+.background-whole {
+    background-image:url("../../assets/background.jpg");
+  }
+  
+  .mybanner{
+      margin: 0 auto;
+      width: 1000px;
+      background-color: #FFFFFF;    
+  }
+  .banner {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+  }
+.body{
+    margin: 0 auto;
+      width: 1000px;
+      background-color: #FFFFFF;    
+}
+.foot{
+    margin: 0 auto;
+      width: 1000px;
+      background-color: #FFFFFF;   
+}
+.foot-pic{
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+}
+
+
+.gl{
+    background-image:url("../../assets/back.jpg");
+    text-align:center;
+}
+.mybutton{
+    display:inline-block;
+}

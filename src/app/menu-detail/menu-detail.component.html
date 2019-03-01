@@ -1,0 +1,99 @@
+<div class="background-whole">
+  <div class="channel">
+    <!--<h1>{{ptitle}}</h1>-->
+    <!--<img src={{pcoverImg}} height="200" width="200">-->
+    <!--<li *ngFor="let i of ptag">-->
+      <!--<b>{{i}}</b>-->
+    <!--</li>-->
+    <!--<p><b>author:{{pname}}</b></p>-->
+    <!--<p><b>createDate:{{ptime}}</b></p>-->
+    <div class="clr-row clr-justify-content-center">
+      <div class="clr-col-4">
+        <img src={{pcoverImg}} width="70%" height="90%">
+      </div>
+
+      <div class="clr-col-8">
+        <h1>{{ptitle}}</h1>
+        <span>Author: {{pname}} </span><br>
+        <span>CreateDate: {{ptime}}</span><br>
+        <ul>
+          <li *ngFor="let i of ptag" style="list-style-type:none;float: left" >
+            <span class="label">{{i}}</span>
+          </li>
+        </ul>
+        <br/></div>
+    </div>
+
+    <div class="text">
+
+      <!-- 感觉这里的introduction中图片基本不出现，所以，略去图片【zjk】 -->
+      <div style="background:#FFFAF0; padding:10px; border-radius:5px; margin:10px">
+        <ul style ="list-style-type: none">
+          <li *ngFor="let c of pintro">
+            <!--<img *ngIf="c.imageFlag" src={{c.text}}>-->
+            <b *ngIf="!c.imageFlag">{{c.text}}</b>
+          </li>
+        </ul>
+      </div>
+      <!--<ul style ="list-style-type: none">
+        <li *ngFor="let c of pcontent" >
+          <img *ngIf="c.imageFlag" src={{c.text}}>
+          <b *ngIf="!c.imageFlag">{{c.text}}</b>
+        </li>
+      </ul>-->
+
+      <div class="clr-row">
+        <div class="clr-col-4 clr-justify-content-center">
+          <ul style="list-style-type:none">
+            <li *ngFor="let c of pcontent">
+              <div class="clr-row clr-justify-content-center" *ngIf="c.imageFlag" style="height:200px; margin:10px; padding:10px; background:#FFFAF0; border-radius:5px">
+                <img *ngIf="c.imageFlag" src="{{c.text}}" width="180px" height="180px" style="border-radius:5px;">
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="clr-col-8 clr-justify-content-center">
+          <ul style="list-style-type:none">
+            <li *ngFor="let c of pcontent">
+              <div *ngIf="!c.imageFlag" style="height:200px; margin:10px; padding: 10px; background:#FFFAF0; border-radius:5px">
+                <b *ngIf="!c.imageFlag">{{c.text}}</b>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 感觉成品图就是第一张图（标题那里）所以注释了【张瑾琨】
+      <ul style ="list-style-type: none">
+        <li *ngFor="let c of pfruit">
+          <img *ngIf="c.imageFlag" src={{c.text}}>
+          <b *ngIf="!c.imageFlag">{{c.text}}</b>
+        </li>
+      </ul>
+      -->
+
+      <br>
+
+      <div class="collection-button">
+        <p-button icon="pi pi-star" iconPos="left" label="{{label}}" (click)="collectionClick()"></p-button>
+      </div>
+
+      <div class="remark">
+        <textarea rows="5" cols="100" pInputTextarea autoResize="autoResize" [(ngModel)]="remark"></textarea>
+        <p-button icon="pi pi-check" iconPos="left" label="提交评论" (click)="addRemark()"></p-button>
+      </div>
+      <p-toast position="bottom-right"></p-toast>
+    </div>
+    <!-- following are added by zjk -->
+
+
+    <div class="post-remarks">
+      <p-card *ngFor="let remark of remarkContent" subheader="{{remark.userName}}">
+        <div class="content">{{remark.content}}</div>
+        <div class="created-time">{{remark.createdTime}}</div>
+      </p-card>
+    </div>
+
+    <div style="height: 40px"></div>
+  </div>
+</div>

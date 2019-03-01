@@ -1,0 +1,366 @@
+<div class="background-whole">
+  <div class="channel">
+    <!-- The sample of upload file
+    <input type="file" (change)="output($event)"/>
+    <button (click)="upload()">上传</button>-->
+
+    <!-- 消息提示 -->
+    <p-toast [style]="{marginTop: '80px'}"></p-toast>
+
+    <!-- 导航栏 -->
+    <clr-tabs>
+      <clr-tab>
+        <button clrTabLink>视频</button>
+        <!-- <ng-template [(clrIfActive)]="videoActive"> -->
+        <ng-template>
+          <clr-tab-content>
+            <!-- 输入标题 -->
+            <form clrForm>
+              <clr-input-container>
+                <label>标题</label>
+                <input clrInput placeholder="Title" name="vedioTitle" [(ngModel)]="vedioTitle"/>
+              </clr-input-container>
+            </form>
+            <!-- 上传封面图 -->
+            <div style="margin:5px">
+              <b style="font-size:.541667rem">封面图片</b>
+              <br/>
+              <button class="file">选择文件
+                <input type="file" (change)="output($event)"/>
+              </button>
+              <button class="file" (click)="uploadCoverImg()">上传</button>
+            </div>
+            <!-- 编辑简介 -->
+            <form clrForm>
+              <clr-textarea-container>
+                <label>简介</label>
+                <textarea clrTextarea placeholder="Introduction" [(ngModel)]="vedioIntro" name="vedioIntro"></textarea>
+              </clr-textarea-container>
+            </form>
+            <!-- 上传视频资源 -->
+            <div style="margin:5px">
+              <b style="font-size:.541667rem">视频资源</b>
+              <br/>
+              <button class="file">选择文件
+                <input type="file" (change)="output($event)"/>
+              </button>
+              <button class="file" (click)="uploadVedioSource()">上传</button>
+            </div>
+            <!-- 添加tag -->
+            <form clrForm>
+              <clr-input-container>
+                <label>添加标签</label>
+                <input clrInput placeholder="Tag" name="vedioTag" [(ngModel)]="vedioTag"/>
+              </clr-input-container>
+              <button type="button" class="btn btn-icon" (click)="vedioAddTag()">
+                <clr-icon shape="plus"></clr-icon>
+              </button>
+              <div *ngIf="vedioTagArray">
+                <div *ngFor="let tag of vedioTagArray" style="float:left">
+                  <span class="label">{{tag}}</span>
+                </div>
+              </div>
+            </form>
+            <!-- 发帖按钮 -->
+            <br/>
+            <button class="btn" style="margin:5px;" (click)="vedioSubmit()">发布</button>
+            <!-- 等待提示 -->
+            <div *ngIf="process" style="margin: 10px">
+              <p-progressSpinner [hidden]="hidden" [style]="{width:'50px',height:'50px'}"></p-progressSpinner>
+            </div>
+          </clr-tab-content>
+        </ng-template>
+      </clr-tab>
+
+      <clr-tab>
+        <button clrTabLink>图文</button>
+        <!-- <ng-template [(clrIfActive)]="pictureTextActive"> -->
+        <ng-template>
+          <clr-tab-content>
+            <!-- 输入标题 -->
+            <form clrForm>
+              <clr-input-container>
+                <label>标题</label>
+                <input clrInput placeholder="Title" name="picTextTitle" [(ngModel)]="picTextTitle"/>
+              </clr-input-container>
+            </form>
+            <!-- 上传封面图 -->
+            <div style="margin:5px">
+              <b style="font-size:.541667rem">封面图片</b>
+              <br/>
+              <button class="file">选择文件
+                <input type="file" (change)="output($event)"/>
+              </button>
+              <button class="file" (click)="uploadCoverImg()">上传</button>
+            </div>
+            <!-- 编辑图文内容 -->
+            <div class="clr-row clr-justify-content-start">
+              <div class="clr-col-3">
+                <div style="margin:5px">
+                  <b style="font-size:.541667rem">内容</b>
+                  <br/>
+                  <button class="file">添加图片
+                    <input type="file" (change)="output($event)"/>
+                  </button>
+                  <button class="file" (click)="uploadPicTextImg()">上传</button>
+                </div>
+              </div>
+              <div class="clr-col-3">
+                <form clrForm>
+                  <clr-textarea-container>
+                    <textarea clrTextarea placeholder="添加内容文字" [(ngModel)]="picTextTextTemp" name="picTextTextTemp"></textarea>
+                  </clr-textarea-container>
+                </form>
+              </div>
+              <div class="clr-col-6">
+                <div style="height:74px"></div>
+                <button class="file" (click)="uploadPicTextText()">提交文字内容</button>
+              </div>
+            </div>
+            <!-- 简单展示图文内容部分 -->
+            <div class="clr-row clr-justify-content-start">
+              <div class="clr-col-6">
+                <div class="card">
+                  <div class="card-block">
+                    <p class="card-text">图文内容顺序预览</p>
+                  </div>
+                  <div *ngIf="contentList">
+                    <ul class="list-group list-group-flush" *ngFor="let c of contentList">
+                      <li class="list-group-item">{{c}}</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 添加tag -->
+            <form clrForm>
+              <clr-input-container>
+                <label>添加标签</label>
+                <input clrInput placeholder="Tag" name="picTextTag" [(ngModel)]="picTextTag"/>
+              </clr-input-container>
+              <button type="button" class="btn btn-icon" (click)="picTextAddTag()">
+                <clr-icon shape="plus"></clr-icon>
+              </button>
+              <div *ngIf="picTextTagArray">
+                <div *ngFor="let tag of picTextTagArray" style="float:left">
+                  <span class="label">{{tag}}</span>
+                </div>
+              </div>
+            </form>
+            <!-- 发帖按钮 -->
+            <br/>
+            <button class="btn" style="margin:5px;" (click)="picTextSubmit()">发布</button>
+            <!-- 等待提示 -->
+            <div style="margin: 10px">
+              <p-progressSpinner [hidden]="hidden" [style]="{width:'50px',height:'50px'}"></p-progressSpinner>
+            </div>
+          </clr-tab-content>
+        </ng-template>
+      </clr-tab>
+
+      <clr-tab>
+        <button clrTabLink>菜谱</button>
+        <!-- <ng-template [(clrIfActive)]="menuActive"> -->
+        <ng-template>
+          <clr-tab-content>
+            <!-- 输入标题 -->
+            <form clrForm>
+              <clr-input-container>
+                <label>标题</label>
+                <input clrInput placeholder="Title" name="menuTitle" [(ngModel)]="menuTitle"/>
+              </clr-input-container>
+            </form>
+            <!-- 上传封面图 -->
+            <div style="margin:5px">
+              <b style="font-size:.541667rem">封面图片</b>
+              <br/>
+              <button class="file">选择文件
+                <input type="file" (change)="output($event)"/>
+              </button>
+              <button class="file" (click)="uploadCoverImg()">上传</button>
+            </div>
+            <!-- 编辑简介 -->
+            <form clrForm>
+              <clr-textarea-container>
+                <label>简介</label>
+                <textarea clrTextarea placeholder="Introduction" [(ngModel)]="menuIntro" name="menuIntro"></textarea>
+              </clr-textarea-container>
+            </form>
+            <!-- 编辑图文内容 -->
+            <div class="clr-row clr-justify-content-start">
+              <div class="clr-col-3">
+                <div style="margin:5px">
+                  <b style="font-size:.541667rem">菜谱内容</b>
+                  <br/>
+                  <button class="file">添加图片
+                    <input type="file" (change)="output($event)"/>
+                  </button>
+                  <button class="file" (click)="uploadMenuImg()">上传</button>
+                </div>
+              </div>
+              <div class="clr-col-3">
+                <form clrForm>
+                  <clr-textarea-container>
+                    <textarea clrTextarea placeholder="添加内容文字" [(ngModel)]="menuTextTemp" name="menuTextTemp"></textarea>
+                  </clr-textarea-container>
+                </form>
+              </div>
+              <div class="clr-col-6">
+                <div style="height:74px"></div>
+                <button class="file" (click)="uploadMenuText()">提交文字内容</button>
+              </div>
+            </div>
+            <!-- 简单展示图文内容部分 -->
+            <div class="clr-row clr-justify-content-start">
+              <div class="clr-col-6">
+                <div class="card">
+                  <div class="card-block">
+                    <p class="card-text">图文内容顺序预览</p>
+                  </div>
+                  <div *ngIf="contentList">
+                    <ul class="list-group list-group-flush" *ngFor="let c of contentList">
+                      <li class="list-group-item">{{c}}</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 添加tag -->
+            <form clrForm>
+              <clr-input-container>
+                <label>添加标签</label>
+                <input clrInput placeholder="Tag" name="menuTag" [(ngModel)]="menuTag"/>
+              </clr-input-container>
+              <button type="button" class="btn btn-icon" (click)="menuAddTag()">
+                <clr-icon shape="plus"></clr-icon>
+              </button>
+              <div *ngIf="menuTagArray">
+                <div *ngFor="let tag of menuTagArray" style="float:left">
+                  <span class="label">{{tag}}</span>
+                </div>
+              </div>
+            </form>
+            <!-- 发帖按钮 -->
+            <br/>
+            <button class="btn" style="margin:5px;" (click)="menuSubmit()">发布</button>
+            <!-- 等待提示 -->
+            <div *ngIf="process" style="margin: 10px">
+              <p-progressSpinner [hidden]="hidden" [style]="{width:'50px',height:'50px'}"></p-progressSpinner>
+            </div>
+          </clr-tab-content>
+        </ng-template>
+      </clr-tab>
+
+      <clr-tab>
+        <button clrTabLink>ASMR</button>
+        <!-- <ng-template [(clrIfActive)]="asmrActive"> -->
+        <ng-template>
+          <clr-tab-content>
+            <!-- 输入标题 -->
+            <form clrForm>
+              <clr-input-container>
+                <label>标题</label>
+                <input clrInput placeholder="Title" name="asmrTitle" [(ngModel)]="asmrTitle"/>
+              </clr-input-container>
+            </form>
+            <!-- 上传封面图 -->
+            <div style="margin:5px">
+              <b style="font-size:.541667rem">封面图片</b>
+              <br/>
+              <button class="file">选择文件
+                <input type="file" (change)="output($event)"/>
+              </button>
+              <button class="file" (click)="uploadCoverImg()">上传</button>
+            </div>
+            <!-- 编辑简介 -->
+            <form clrForm>
+              <clr-textarea-container>
+                <label>简介</label>
+                <textarea clrTextarea placeholder="Introduction" [(ngModel)]="asmrIntro" name="asmrIntro"></textarea>
+              </clr-textarea-container>
+            </form>
+            <!-- 上传音频资源 -->
+            <div style="margin:5px">
+              <b style="font-size:.541667rem">音频资源</b>
+              <br/>
+              <button class="file">选择文件
+                <input type="file" (change)="output($event)"/>
+              </button>
+              <button class="file" (click)="uploadSource()">上传</button>
+            </div>
+            <!-- 添加tag -->
+            <form clrForm>
+              <clr-input-container>
+                <label>添加标签</label>
+                <input clrInput placeholder="Tag" name="asmrTag" [(ngModel)]="asmrTag"/>
+              </clr-input-container>
+              <button type="button" class="btn btn-icon" (click)="asmrAddTag()">
+                <clr-icon shape="plus"></clr-icon>
+              </button>
+              <div *ngIf="asmrTagArray">
+                <div *ngFor="let tag of asmrTagArray" style="float:left">
+                  <span class="label">{{tag}}</span>
+                </div>
+              </div>
+            </form>
+            <!-- 发帖按钮 -->
+            <br/>
+            <button class="btn" style="margin:5px;" (click)="asmrSubmit()">发布</button>
+            <!-- 等待提示 -->
+            <div *ngIf="process" style="margin: 10px">
+              <p-progressSpinner [hidden]="hidden" [style]="{width:'50px',height:'50px'}"></p-progressSpinner>
+            </div>
+          </clr-tab-content>
+        </ng-template>
+      </clr-tab>
+
+      <clr-tab>
+        <button clrTabLink>图片</button>
+        <!-- <ng-template [(clrIfActive)]="pictureActive"> -->
+        <ng-template>
+          <clr-tab-content>
+            <!-- 输入标题 -->
+            <form clrForm>
+              <clr-input-container>
+                <label>标题</label>
+                <input clrInput placeholder="Title" name="picTitle" [(ngModel)]="picTitle"/>
+              </clr-input-container>
+            </form>
+            <!-- 上传封面图 -->
+            <div style="margin:5px">
+              <b style="font-size:.541667rem">封面图片</b>
+              <br/>
+              <button class="file">选择文件
+                <input type="file" (change)="output($event)"/>
+              </button>
+              <button class="file" (click)="uploadCoverImg()">上传</button>
+            </div>
+            <!-- 添加tag -->
+            <form clrForm>
+              <clr-input-container>
+                <label>添加标签</label>
+                <input clrInput placeholder="Tag" name="picTag" [(ngModel)]="picTag"/>
+              </clr-input-container>
+              <button type="button" class="btn btn-icon" (click)="picAddTag()">
+                <clr-icon shape="plus"></clr-icon>
+              </button>
+              <div *ngIf="picTagArray">
+                <div *ngFor="let tag of picTagArray" style="float:left">
+                  <span class="label">{{tag}}</span>
+                </div>
+              </div>
+            </form>
+            <!-- 发帖按钮 -->
+            <br/>
+            <button class="btn" style="margin:5px;" (click)="picSubmit()">发布</button>
+            <!-- 等待提示 -->
+            <div *ngIf="process" style="margin: 10px">
+              <p-progressSpinner [hidden]="hidden" [style]="{width:'50px',height:'50px'}"></p-progressSpinner>
+            </div>
+          </clr-tab-content>
+        </ng-template>
+      </clr-tab>
+    </clr-tabs>
+
+  </div>
+</div>

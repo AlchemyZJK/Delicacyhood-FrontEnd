@@ -1,0 +1,62 @@
+<div class="background-whole">
+  <div class="mybanner">
+      <img class="banner" src="../assets/forget.png" />
+  </div>
+  
+
+<div class="body">
+<div class="forget">
+       <div class="input-box">
+        <span class="icon icon-email"></span>
+        <input type="text" pInputText [(ngModel)]="useremail" placeholder="请输入您注册账号使用的邮箱">
+        </div>
+        <p></p>
+        <div class="box">
+            <button  class="sub" pButton label="获取密保问题" (click)="getquestion()" style="margin-left:5px"></button>
+        </div>
+        <p-messages [(value)]="mmsg3" class="mymessage2"></p-messages>   
+
+        <div class="box2">
+          <div class="getque-results">
+              <div class="que1">{{b}}问题1：{{this.question1}}</div>
+              <div class="que2">{{b}}问题2：{{this.question2}}</div>
+          </div>
+        </div>
+        
+        <div class="question">
+            <span class="icon icon-question"></span>
+            <p-dropdown class="que"  [options]="myoptionquestion" [(ngModel)]="question"   placeholder="请选择一个密保问题　　　　　　　　　　　　　" [showClear]="true"></p-dropdown>
+          </div>
+      
+        <div class="input-box">
+            <span class="icon icon-answer"></span>
+            <input type="text" pInputText [(ngModel)]="answer" placeholder="请输入所选密保问题的回答，1~10个字符">
+        </div>
+
+        <div class="input-box">
+            <span class="icon icon-password"></span>
+            <input type="password" pInputText [(ngModel)]="password" placeholder="新密码：至少6位">
+            <p-messages [(value)]="mmsg_password" class="mymessage_password" [showTransitionOptions]="'1000ms'"></p-messages>
+        </div>
+
+        <p></p>
+        <div class="box">
+            <button  class="sub" pButton label="修改密码" (click)="modify()" style="margin-left:5px" ></button>
+        </div>
+
+        <p-messages [(value)]="mmsg" class="mymessage"></p-messages>
+        <p-messages [(value)]="mmsg2" class="mymessage2"></p-messages>   
+
+         <div class="box" >
+            <a routerLink="/user" class="sub">前往个人中心</a>
+        </div>
+</div>
+</div>
+
+
+<div class="foot">
+  <img class="foot-pic" src="../assets/footer.png" />    
+</div>
+
+
+</div>

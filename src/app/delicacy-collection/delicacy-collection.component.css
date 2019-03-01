@@ -1,0 +1,29 @@
+/* DelicacyCollectionComponent's private CSS style */
+.collection-remark-num {
+  /*the background color of remark and collection num*/
+  /*may change according to the main background*/
+  background-color: #FFCCCC;
+  color: #585858;
+  width: 170px;
+  height: 25px;
+  margin: 5px 5px 5px 0px;
+  border-radius: 5px;
+}
+
+.collection-num {
+  width:75px;
+  height: 15px;
+  float: left;
+  text-align: center;
+  margin: 5px;
+  font-size: small;
+}
+
+.remark-num {
+  width:75px;
+  height: 15px;
+  float: left;
+  text-align: center;
+  margin: 5px;
+  font-size: small;
+}

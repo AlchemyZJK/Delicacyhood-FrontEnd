@@ -1,0 +1,37 @@
+/*DelicacySearchComponent's private CSS style*/
+.delicacy-search {
+  width: 1000px;
+  height: 44px;
+}
+
+.search-item {
+  margin: 5px 13px 5px 0px;
+  float: left;
+}
+.search-item .ui-inputgroup .ui-inputgroup-addon {
+  font-size: 13px;
+  /*the background color of remark and collection num*/
+  /*may change according to the main background*/
+}
+
+.choose-item {
+  margin: 5px 13px 5px 5px;
+  float: left;
+}
+
+.button-item {
+  margin: 5px 0px 5px 5px;
+  float: left;
+}
+
+ li{
+  list-style-type:none;
+}
+
+.container{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  width:1000px;
+  margin: 0 auto;
+}

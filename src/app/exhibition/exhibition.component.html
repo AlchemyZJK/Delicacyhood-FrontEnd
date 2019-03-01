@@ -1,0 +1,73 @@
+<div class="background-whole">
+<!--<div *ngIf="hero">-->
+  <!--<h2>{{hero.name | uppercase}} Details</h2>-->
+  <!--<div><span>id: </span>{{hero.id}}</div>-->
+  <!--<div>-->
+
+      <!--<img src={{hero.path}} width="200" height="200"/>-->
+      <!--<a href="../signin">detail</a>-->
+
+    <!--&lt;!&ndash;<label>name:-->
+      <!--<input [(ngModel)]="hero.name" placeholder="name"/>-->
+    <!--</label>&ndash;&gt;</div></div>-->
+  <div class="channel">
+
+    <div class="welcome">
+      <img class="welcome-pic" src={{path}} width="1000px">
+    </div>
+
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12" *ngFor="let j of cardcont" >
+        <a href={{j.path}} class="card clickable">
+          <div class="card-img">
+            <img src={{j.coverImg}} >
+          </div>
+          <div class="card-block" style="padding: 5px; padding-top: 5px">
+            <p class="card-text">
+              <span style="font-size: 16px"><b>{{j.title}}</b></span>
+            </p>
+            <div class="collection-remark-num" style="position: absolute; bottom: -5px; left: 5px">
+              <div class="star-icon" style="float: left">
+                <clr-icon shape="star"></clr-icon>
+              </div>
+              <div class="collection-number" style="float: left">{{j.collectionNum}}</div>
+              <div class="remark-icon" style="float: left">
+                <clr-icon shape="chat-bubble"></clr-icon>
+              </div>
+              <div class="remark-number" style="float: left">{{j.remarkNum}}</div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+  <div class="clr-row clr-justify-content-center">
+    <div class="clr-col-3" style="margin:20px">
+      <div class="btn-group">
+        <button class="btn" (click)="beforePage()" [hidden]="!beforePageFlag">
+          <clr-icon shape="rewind"></clr-icon>
+        </button>
+        <button class="btn" disabled [hidden]="beforePageFlag">
+          <clr-icon shape="rewind"></clr-icon>
+        </button>
+        <button class="btn" disabled>{{page}}</button>
+        <button class="btn" (click)="nextPage()" [hidden]="!nextPageFlag">
+          <clr-icon shape="fast-forward"></clr-icon>
+        </button>
+        <button class="btn" disabled [hidden]="nextPageFlag">
+          <clr-icon shape="fast-forward"></clr-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div style="height: 40px"></div>
+  </div>
+    <img class="footer-pic" src="../assets/footer.png" />
+</div>
+</div>
+
+

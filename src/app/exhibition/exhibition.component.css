@@ -1,0 +1,71 @@
+/*.container{*/
+  /*display:flex;*/
+  /*justify-content:center;*/
+  /*flex-wrap:wrap;*/
+  /*width:1000px;*/
+  /*margin: 0 auto;*/
+  /*padding: 1rem;*/
+/*}*/
+ li{
+  list-style-type:none;
+}
+.background-whole {
+  background-image:url("../../assets/background.jpg");
+}
+.channel {
+  margin: 0 auto;
+  width: 1000px;
+  background-color: #FFFFFF;
+  /*padding: 2rem;*/
+}
+
+.welcome {
+  margin: 0 auto;
+  width: 1000px;
+}
+
+.card.clickable {
+  min-height: 95%;
+}
+
+.collection-remark-num {
+  /*the background color of remark and collection num*/
+  /*may change according to the main background*/
+  /*background-color: #FFCCCC;*/
+  color: #585858;
+  width: 170px;
+  height: 25px;
+  margin: 5px 5px 5px 0px;
+  border-radius: 5px;
+}
+
+.collection-num {
+  width:75px;
+  height: 15px;
+  float: left;
+  text-align: center;
+  margin: 5px;
+  font-size: small;
+}
+
+.remark-num {
+  width:75px;
+  height: 15px;
+  float: left;
+  text-align: center;
+  margin: 5px;
+  font-size: small;
+}
+
+.collection-number{
+  width: 15px;
+  text-align: center;
+}
+
+.remark-number{
+  width:15px;
+  text-align: center;
+}
+.card-block {
+  padding: 1px;
+}

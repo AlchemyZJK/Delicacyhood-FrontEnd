@@ -1,0 +1,15 @@
+.card {
+  white-space: nowrap;
+}
+
+ li{
+  list-style-type: none;
+  margin:5px;
+}
+
+.container{
+  display:flex;
+  justify-content:left;
+  flex-wrap:wrap;
+  margin: 0 auto;
+}

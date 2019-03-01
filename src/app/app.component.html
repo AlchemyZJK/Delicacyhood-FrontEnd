@@ -1,0 +1,107 @@
+<header class="header-6">
+
+  <div class="branding">
+    <a routerLink="/" class="nav-link" (click)="home()">
+      <img src="assets/logo.png" height="30px"/>
+      <span class="title">知食分子</span>
+    </a>
+  </div>
+
+  <div class="header-nav">
+    <a routerLink="/upload" [class]="status2Class('upload')" (click)="upload()">发帖</a>
+    <a routerLink="" [class]="status2Class('menu')" (click)="menu()">菜谱</a>
+    <a routerLink="" [class]="status2Class('health')" (click)="health()">养生</a>
+    <a routerLink="" [class]="status2Class('asmr')" (click)="asmr()">ASMR</a>
+    <a routerLink="/picture" [class]="status2Class('square')" (click)="photoSquare()">图片广场</a>
+  </div>
+
+  <div>
+    <clr-dropdown>
+      <button clrDropdownTrigger>
+        <span *ngIf="!searchOption">搜内容</span>
+        <span *ngIf="searchOption">搜作者</span>
+        <clr-icon shape="caret down"></clr-icon>
+      </button>
+      <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+        <a (click)="changeSearchOption(0)" clrDropdownItem>搜内容</a>
+        <a (click)="changeSearchOption(1)" clrDropdownItem>搜作者</a>
+      </clr-dropdown-menu>
+    </clr-dropdown>
+  </div>
+
+  <form class="search">
+    <label for="search_input">
+      <input id="search_input" type="text" placeholder="Search for keywords..."
+             [(ngModel)]="condition" (change)="output()" [ngModelOptions]="{standalone: true}">
+    </label>
+  </form>
+
+  <clr-dropdown >
+    <button clrDropdownTrigger (click)="search()">
+      <span>搜索</span>
+    </button>
+  </clr-dropdown>
+
+  <div class="header-actions" *ngIf="!logInStatus">
+    <a routerLink="/signin" class="nav-link nav-text signin">
+      <span class="title">登陆</span>
+    </a>
+    <a routerLink="/login" class="nav-link nav-text signin">
+      <span class="title">注册</span>
+    </a>
+  </div>
+  <div class="header-actions" *ngIf="logInStatus">
+    <clr-dropdown>
+      <button class="nav-icon notDown" clrDropdownTrigger (click)="showbar=false;">
+        <clr-icon shape="user"></clr-icon>
+        <clr-icon shape="caret down"></clr-icon>
+      </button>
+      <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+        <a routerLink="" clrDropdownItem (click)="goTo('1')">
+          <clr-icon shape="home"></clr-icon>
+          个人中心
+        </a>
+        <a routerLink="" clrDropdownItem (click)="goTo('2')">
+          <clr-icon shape="cog"></clr-icon>
+          帐号管理
+        </a>
+        <a routerLink="" clrDropdownItem (click)="goTo('3')">
+          <clr-icon shape="folder-open"></clr-icon>
+          我的收藏
+        </a>
+        <a routerLink="" clrDropdownItem (click)="goTo('4')">
+          <clr-icon shape="chat-bubble"></clr-icon>
+          我的评论
+        </a>
+        <a routerLink="" clrDropdownItem (click)="logOut()">
+          <clr-icon shape="logout"></clr-icon>
+          退出帐号
+        </a>
+      </clr-dropdown-menu>
+    </clr-dropdown>
+  </div>
+</header>
+<!--用于占位-->
+<div style="height: 60px"></div>
+
+<nav class="subnav" *ngIf="showbar">
+  <ul class="nav">
+    <li class="nav-item">
+      <a [class]="status2SubClass('1')" routerLink="" (click)="choose('1')">中餐</a>
+    </li>
+    <li class="nav-item">
+      <a [class]="status2SubClass('2')" routerLink="" (click)="choose('2')">西餐</a>
+    </li>
+    <li class="nav-item">
+      <a [class]="status2SubClass('3')" routerLink="" (click)="choose('3')">其他</a>
+    </li>
+  </ul>
+</nav>
+<div style="height: 36px" *ngIf="showbar"></div>
+
+<router-outlet></router-outlet>
+
+<div style="height: 40px"></div>
+<footer>
+  copyright @ 知食分子
+</footer>

@@ -1,0 +1,48 @@
+<div class="background-whole">
+<div class="mybanner">
+    <img class="banner" src="../assets/userbanner.png" />
+</div>
+
+<div class="body">
+<p-tabView orientation="left">
+    <p-tabPanel header="　　　　 ★个人信息★" [selected]="getSelected('1')" >
+            <div class="gl">
+                <app-user-information></app-user-information>
+        
+                <div class="mybuttuon"><app-logout></app-logout><br></div>
+                <div class="mybuttuon"><app-logoff></app-logoff><br></div>
+                <div class="mybuttuon">
+                <div class='passwordmodify'>
+                <p-dialog header="修改密码" [(visible)]="display" [modal]="true" [responsive]="true" [width]="350" [minWidth]="200" [minY]="70"
+                            [maximizable]="true" [baseZIndex]="10000">
+                    <app-password-modify></app-password-modify>
+                </p-dialog>
+                </div>
+                <button type="text" (click)="showDialog()" pButton icon="pi pi-info-circle" label="修改我的密码"></button>
+                </div>
+            </div>
+    </p-tabPanel>
+
+<!--     <p-tabPanel header="　　　　 ★账号管理★" [selected]="getSelected('2')">  
+  </p-tabPanel> -->
+
+    <p-tabPanel header="　　　　 ★我的收藏★" [selected]="getSelected('3')">
+      <app-user-collection></app-user-collection>
+    </p-tabPanel>
+
+    <p-tabPanel header="　　　　 ★我的评论★" [selected]="getSelected('4')">
+        <app-user-remark></app-user-remark>
+    </p-tabPanel>
+
+</p-tabView>
+
+
+</div>
+
+
+
+<div class="foot">
+    <img class="foot-pic" src="../assets/footer.png" />
+</div>
+
+</div>

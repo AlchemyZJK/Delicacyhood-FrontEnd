@@ -1,0 +1,49 @@
+<div class="background-whole">
+  <div class="mybanner">
+      <img class="banner" src="assets/info_modify.png" />
+  </div>
+
+  <div class="body">
+    <div class="informatimodify">
+      <div class="input-box">
+          <span class="icon icon-user"></span>
+          <input type="text" pInputText [(ngModel)]="username" placeholder="请设置新用户名：1~10个字符">
+      </div>
+
+      <div class="question">
+          <span class="icon icon-question"></span>
+          <p-dropdown class="que"  [options]="optiongender" [(ngModel)]="gender" placeholder="性别：保密　　　　　　　　　　　　　　　　　" [showClear]="true"></p-dropdown>
+        </div>
+
+      <div class="input-box">
+            <span class="icon icon-birth"></span>
+            <input type="text" pInputText [(ngModel)]="birth" placeholder="出生时间">
+        </div>
+
+      <div class="input-box">
+            <span class="icon icon-user"></span>
+            <input type="text" pInputText [(ngModel)]="introduction" placeholder="个人简介">
+        </div>
+
+      <div class="box">
+            <button  class="sub" pButton label="修改资料" (click)="modify()" ></button>
+        </div>
+
+        <p-messages [(value)]="mmsg" class="mymessage"></p-messages>
+        <p-messages [(value)]="mmsg2" class="mymessage2"></p-messages>
+      <div class="box" >
+            <a routerLink="/user" class="sub">返回个人中心</a>
+        </div>
+    </div>
+
+</div>
+
+<div class="foot">
+    <img class="foot-pic" src="../assets/footer.png" />
+</div>
+
+
+</div>
+
+
+

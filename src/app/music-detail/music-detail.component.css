@@ -1,0 +1,62 @@
+.background-whole {
+  background-image:url("../../assets/background.jpg");
+}
+
+.channel {
+  margin: 0 auto;
+  width: 1000px;
+  background-color: #FFFFFF;
+  padding: 2rem;
+}
+
+.remark {
+  margin: 5px 5px 5px 0px;
+  width: 760px;
+  height: 136px;
+  padding: 0rem 2rem 0rem 0rem;
+}
+.remark p-button {
+  float: right;
+}
+
+.topImg {
+  width: 300px;
+  height: 100px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.topImg img{
+  width: auto;
+  height: 100%;
+}
+
+.text {
+  padding: 2rem 4rem;
+}
+
+
+div.clr-col-4 {
+  text-align: center;
+}
+body{
+  background:#2b2938;
+}
+.btn-audio{
+  margin: 90px auto;
+  width: 186px;
+  height: 186px;
+  /*background:url(../../voice_stop.png) no-repeat center bottom;*/
+  background-size:cover;
+}
+div.clr-row.clr-justify-content-center {
+  margin-left: 5rem;
+}
+.text {
+  padding: 2rem 4rem;
+}
+
+.post-remarks {
+  padding: 0rem 4rem 0rem 4rem;
+}

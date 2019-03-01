@@ -1,0 +1,72 @@
+<div class="background-whole">
+<div class="mybanner">
+    <img class="banner" src="../assets/login.png" />
+</div>
+
+
+<div class="body">
+<div class="login">
+
+  <div class="login-input-box">
+      <span class="icon icon-email"></span>
+      <input required type="email" pInputText [(ngModel)]="email" placeholder="请输入您的常用邮箱来注册账号">
+  </div>
+  <div class="login-input-box">
+      <span class="icon icon-password"></span>
+      <input type="password" pInputText [(ngModel)]="password" placeholder="请设置密码：6位以上；">
+  </div>
+  <div class="login-input-box">
+      <span class="icon icon-password"></span>
+      <input type="password" pInputText [(ngModel)]="checkpassword" placeholder="请确认密码" recheck="password">
+      <p-messages [(value)]="mmsg_password" class="mymessage_password" [showTransitionOptions]="'1000ms'"></p-messages>
+  </div>
+  <div class="login-input-box">
+      <span class="icon icon-user"></span>
+      <input type="text" pInputText [(ngModel)]="username" placeholder="请设置用户名：1~10个字符">
+  </div>
+  <div class="question">
+      <span class="icon icon-question"></span>
+      <p-dropdown   class="que"   [options]="optionquestion" [(ngModel)]="question1" placeholder="请设置第一个密保问题　　　　　　　　　　　　" [showClear]="true"></p-dropdown>
+    </div>
+
+  <div class="login-input-box">
+      <span class="icon icon-answer"></span>
+      <input type="text" pInputText [(ngModel)]="answer1" placeholder="请输入第一个密保问题的回答，1~10个字符" required="required">
+  </div>
+
+  <div class="question">
+      <span class="icon icon-question"></span>
+      <p-dropdown   class="que"  [options]="optionquestion" [(ngModel)]="question2" placeholder="请设置第二个密保问题　　　　　　　　　　　　" [showClear]="true"></p-dropdown>
+    </div>
+
+  <div class="login-input-box">
+      <span class="icon icon-answer"></span>
+      <input type="text" pInputText [(ngModel)]="answer2" placeholder="请输入第二个密保问题的回答，1~10个字符">
+  </div>
+
+  <p-messages [(value)]="mmsg_answer" class="mymessage_password" [showTransitionOptions]="'1000ms'"></p-messages>
+  <p>
+    
+  </p>
+  <div class="box">
+      <p-button class="sub" label="注册" (click)="register()"></p-button>
+  </div>
+
+  
+  <p-messages [(value)]="mmsg" class="mymessage" [showTransitionOptions]="'1000ms'"></p-messages>
+  <p-messages [(value)]="mmsg2" class="mymessage2" [showTransitionOptions]="'1000ms'"></p-messages>
+
+  <div class="box" >
+      <a routerLink="/user" class="sub">前往个人中心</a>
+  </div>
+
+  </div>
+
+</div>
+
+  <div class="foot">
+      <img class="foot-pic" src="../assets/footer.png" />
+  </div>
+</div>
+
+
