@@ -21,11 +21,16 @@
 
 ### Demo（部分demo展示）
 
+- 主页展示
+![image](https://github.com/AlchemyZJK/Delicacyhood-FrontEnd/blob/master/demo-img/mainPage.png?raw=true)
+
 - 网站部分栏目内容展示
 
 ![image](https://github.com/AlchemyZJK/Delicacyhood-FrontEnd/blob/master/demo-img/展示分页栏.png?raw=true)
 
 - 按作者名搜索（搜索框详见截图顶端）
+
+![image](https://github.com/AlchemyZJK/Delicacyhood-FrontEnd/blob/master/demo-img/searchPage.png?raw=true)
 
 ![image](https://github.com/AlchemyZJK/Delicacyhood-FrontEnd/blob/master/demo-img/搜索-作者名搜索.png?raw=true)
 
@@ -38,6 +43,8 @@
 ![image](https://github.com/AlchemyZJK/Delicacyhood-FrontEnd/blob/master/demo-img/用户个人收藏.png?raw=true)
 
 - 帖子详情、评论与收藏
+
+![image](https://github.com/AlchemyZJK/Delicacyhood-FrontEnd/blob/master/demo-img/contentPage.png?raw=true)
 
 ![image](https://github.com/AlchemyZJK/Delicacyhood-FrontEnd/blob/master/demo-img/评论和收藏.png?raw=true)
 
